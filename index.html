@@ -93,20 +93,16 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 600px;
+            min-height: 600px; /* Adjust min-height as needed */
             display: flex;
             align-items: flex-end;
         }
 
-        .hero-content {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding-bottom: 0 !important;
-            padding-top: 0 !important;
-            width: 100%;
-            max-width: 600px;
+        /* Section for buttons, now with full-width white background */
+        .buttons-section {
+            background: white; /* Full width white background */
+            padding: 40px 0; /* Add vertical padding for space */
+            text-align: center; /* Center buttons within the section */
         }
 
         .cta-button {
@@ -326,6 +322,7 @@
         }
 
         #caption {
+            display: none; /* Скрываем подпись */
             text-align: center;
             color: #ccc;
             margin-top: 15px;
@@ -437,21 +434,17 @@
             .hero {
                 padding: 100px 0 120px;
                 min-height: 400px;
-            }
-
-            .hero-content {
-                bottom: 30px;
-                padding: 0 20px;
-                max-width: 100%;
+                background-size: contain; /* Changed for full image visibility */
+                background-position: center; /* Ensure it's centered */
+                background-repeat: no-repeat; /* Ensure no repetition */
             }
 
             .cta-button {
                 padding: 12px 25px;
                 font-size: 1rem;
-                margin: 5px;
+                margin: 10px auto; /* Center buttons horizontally */
                 display: block;
                 max-width: 280px;
-                margin: 10px auto;
                 text-align: center;
             }
 
@@ -510,8 +503,8 @@
                 min-height: 350px;
             }
 
-            .hero-content {
-                bottom: 20px;
+            .buttons-section { /* Adjusted for smaller screens */
+                padding-top: 30px;
             }
 
             .cta-button {
@@ -527,9 +520,8 @@
                 min-height: 300px;
             }
 
-            .hero-content {
-                bottom: 15px;
-                padding: 0 15px;
+            .buttons-section { /* Further adjusted for very small screens */
+                padding-top: 20px;
             }
 
             .cta-button {
@@ -560,12 +552,16 @@
 </header>
 <section class="hero" id="home">
 <div class="container">
-<div class="hero-content">
+</div>
+</section>
+
+<section class="buttons-section">
+<div class="container">
 <a class="cta-button" href="#contact">Записаться на пробное занятие</a>
 <a class="cta-button secondary" href="#programs">Наши программы</a>
 </div>
-</div>
 </section>
+
 <section class="features" id="about">
 <div class="container">
 <h2>Почему выбирают нас</h2>
@@ -788,7 +784,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modalImg');
-    const caption = document.getElementById('caption');
+    const caption = document.getElementById('caption'); // Получаем элемент подписи
     const close = document.getElementsByClassName('close')[0];
     
     // Добавляем обработчики для всех изображений в галерее
@@ -797,7 +793,7 @@ document.addEventListener('DOMContentLoaded', function() {
         img.addEventListener('click', function() {
             modal.style.display = 'block';
             modalImg.src = this.src;
-            caption.innerHTML = this.alt;
+            // Удалена строка: caption.innerHTML = this.alt;
         });
     });
     
