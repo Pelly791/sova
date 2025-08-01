@@ -21,6 +21,7 @@
             color: #333;
             background: linear-gradient(135deg, #e8f5e8 0%, #f0f8f0 100%);
             min-height: 100vh;
+            padding-top: 70px; /* Отступ для фиксированного хедера */
         }
 
         .container {
@@ -87,22 +88,22 @@
 
         /* Hero Section */
         .hero {
-            background: white url('img/banner.png') center/cover no-repeat; /* Added white background color */
+            background: white url('img/banner.png') center/cover no-repeat;
             color: #2d5a2d;
             padding: 120px 0 150px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            min-height: 600px; /* Adjust min-height as needed */
+            min-height: 600px;
             display: flex;
             align-items: flex-end;
         }
 
         /* Section for buttons, now with full-width white background */
         .buttons-section {
-            background: white; /* Full width white background */
-            padding: 40px 0; /* Add vertical padding for space */
-            text-align: center; /* Center buttons within the section */
+            background: white;
+            padding: 40px 0;
+            text-align: center;
         }
 
         .cta-button {
@@ -138,56 +139,33 @@
             color: white;
         }
 
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .features h2 {
+        /* Enrollment Announcement Section */
+        .enrollment-announcement {
+            padding: 20px 0;
+            background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 1rem auto;
-            display: block;
-        }
-
-        .feature-card h3 {
-            color: #333;
+        .enrollment-announcement h2 {
+            font-family: 'Bubblegum Sans', cursive;
+            font-size: 2.2rem;
+            color: #2d5a2d;
             margin-bottom: 1rem;
-            font-size: 1.3rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
         }
 
         /* Programs Section */
         .programs {
             padding: 80px 0;
             background: linear-gradient(135deg, #f8f5f0 0%, #f0ede8 100%);
+        }
+
+        .programs .enrollment-text {
+            text-align: center;
+            font-size: 1.8rem;
+            color: #2d5a2d;
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
 
         .programs h2 {
@@ -262,11 +240,68 @@
             text-align: left;
             margin-top: auto;
             padding-left: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         .program-card li {
             margin-bottom: 0.5rem;
             line-height: 1.4;
+        }
+
+        .program-card .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #D4A5A5;
+            text-align: center;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem auto;
+            display: block;
+        }
+
+        .feature-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
 
         /* Gallery Section */
@@ -426,6 +461,9 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            body {
+                padding-top: 50px; /* Отступ для хедера на мобильных */
+            }
             .nav-links {
                 display: none;
             }
@@ -434,18 +472,26 @@
             .hero {
                 padding: 100px 0 120px;
                 min-height: 400px;
-                background-size: contain; /* Changed for full image visibility */
-                background-position: center; /* Ensure it's centered */
-                background-repeat: no-repeat; /* Ensure no repetition */
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
             }
 
             .cta-button {
                 padding: 12px 25px;
                 font-size: 1rem;
-                margin: 10px auto; /* Center buttons horizontally */
+                margin: 10px auto;
                 display: block;
                 max-width: 280px;
                 text-align: center;
+            }
+
+            .enrollment-announcement h2 {
+                font-size: 1.8rem;
+            }
+
+            .programs .enrollment-text {
+                font-size: 1.4rem;
             }
 
             .features-grid,
@@ -503,7 +549,7 @@
                 min-height: 350px;
             }
 
-            .buttons-section { /* Adjusted for smaller screens */
+            .buttons-section {
                 padding-top: 30px;
             }
 
@@ -511,6 +557,14 @@
                 padding: 10px 20px;
                 font-size: 0.9rem;
                 margin: 8px auto;
+            }
+
+            .enrollment-announcement h2 {
+                font-size: 1.6rem;
+            }
+
+            .programs .enrollment-text {
+                font-size: 1.2rem;
             }
         }
 
@@ -520,7 +574,7 @@
                 min-height: 300px;
             }
 
-            .buttons-section { /* Further adjusted for very small screens */
+            .buttons-section {
                 padding-top: 20px;
             }
 
@@ -550,6 +604,7 @@
 </ul>
 </nav>
 </header>
+
 <section class="hero" id="home">
 <div class="container">
 </div>
@@ -559,6 +614,104 @@
 <div class="container">
 <a class="cta-button" href="#contact">Записаться на пробное занятие</a>
 <a class="cta-button secondary" href="#programs">Наши программы</a>
+</div>
+</section>
+
+<section class="enrollment-announcement">
+<div class="container">
+<h2>Идёт набор на 2025-2026 учебный год!</h2>
+</div>
+</section>
+
+<section class="programs" id="programs">
+<div class="container">
+<h2>Наши направления</h2>
+<div class="programs-grid">
+<div class="program-card">
+<img alt="Раннее развитие" src="img/early.png"/>
+<h3>Раннее развитие</h3>
+<div class="age">3-5 лет</div>
+<p>Занятия в мини-группах с заботливым педагогом:</p>
+<ul>
+<li>Развитие речи и мышления</li>
+<li>Моторика и внимание</li>
+<li>Музыкальные игры</li>
+<li>Сенсорика и познание мира</li>
+</ul>
+<div class="price">1400 рублей за 4 занятия</div>
+</div>
+
+<div class="program-card">
+<img alt="Подготовка к школе" src="img/school.png"/>
+<h3>Подготовка к школе</h3>
+<div class="age">5-7 лет</div>
+<p>Комплексная подготовка будущих первоклассников:</p>
+<ul>
+<li>Развитие логики и памяти</li>
+<li>Обучение чтению и письму</li>
+<li>Основы математики</li>
+<li>Развитие самостоятельности</li>
+</ul>
+<div class="price">2800 рублей за 8 занятий</div>
+</div>
+
+<div class="program-card">
+<img alt="Помощь школьнику" src="img/homework.png"/>
+<h3>Помощь школьнику</h3>
+<div class="age">1-4 класс</div>
+<p>Помощь в выполнении домашних заданий:</p>
+<ul>
+<li>Русский язык</li>
+<li>Математика</li>
+<li>Чтение</li>
+<li>Другие предметы</li>
+</ul>
+<div class="price">4000 рублей за 8 занятий</div>
+</div>
+
+<div class="program-card">
+<img alt="Школа+" src="img/help.png"/>
+<h3>Школа+</h3>
+<div class="age">1-4 класс</div>
+<p>Групповое закрепление школьной программы:</p>
+<ul>
+<li>Русский язык</li>
+<li>Математика</li>
+<li>Устранение пробелов</li>
+<li>Углубленное изучение</li>
+</ul>
+<div class="price">3000 рублей за 8 занятий</div>
+</div>
+
+<div class="program-card">
+<img alt="Творчество" src="img/creativity.png"/>
+<h3>Арт-лаборатория</h3>
+<div class="age">Все возрасты</div>
+<p>Еженедельные творческие занятия:</p>
+<ul>
+<li>Лепка и рисование</li>
+<li>Аппликации и поделки</li>
+<li>Работа с новыми материалами</li>
+<li>Развитие воображения</li>
+</ul>
+<div class="price">2800 рублей за 4 занятия</div>
+</div>
+
+<div class="program-card">
+<img alt="Английский язык" src="img/english.png"/>
+<h3>Английский язык</h3>
+<div class="age">От 5 лет</div>
+<p>Изучение английского через игру:</p>
+<ul>
+<li>Песни и мультфильмы</li>
+<li>Развитие разговорной речи</li>
+<li>Базовая грамматика</li>
+<li>Занятия по уровням</li>
+</ul>
+<div class="price">2800 рублей за 8 занятий</div>
+</div>
+
+</div>
 </div>
 </section>
 
@@ -599,85 +752,7 @@
 </div>
 </div>
 </section>
-<section class="programs" id="programs">
-<div class="container">
-<h2>Наши программы</h2>
-<div class="programs-grid">
-<div class="program-card">
-<img alt="Раннее развитие" src="img/early.png"/>
-<h3>Раннее развитие</h3>
-<div class="age">3-5 лет</div>
-<p>Занятия в мини-группах с заботливым педагогом:</p>
-<ul>
-<li>Развитие речи и мышления</li>
-<li>Моторика и внимание</li>
-<li>Музыкальные игры</li>
-<li>Сенсорика и познание мира</li>
-</ul>
-</div>
-<div class="program-card">
-<img alt="Подготовка к школе" src="img/school.png"/>
-<h3>Подготовка к школе</h3>
-<div class="age">5-7 лет</div>
-<p>Комплексная подготовка будущих первоклассников:</p>
-<ul>
-<li>Развитие логики и памяти</li>
-<li>Обучение чтению и письму</li>
-<li>Основы математики</li>
-<li>Развитие самостоятельности</li>
-</ul>
-</div>
-<div class="program-card">
-<img alt="Помощь школьнику" src="img/homework.png"/>
-<h3>Продлёнка 1–4 класс</h3>
-<div class="age">7–10 лет</div>
-<p>Закрепление школьной программы и устранение пробелов:</p>
-<ul>
-<li>Русский язык</li>
-<li>Математика</li>
-<li>Чтение</li>
-<li>Логика</li>
-</ul>
-</div>
-<div class="program-card">
-<img alt="Творчество" src="img/creativity.png"/>
-<h3>Творческие мастер-классы</h3>
-<div class="age">Все возрасты</div>
-<p>Еженедельные творческие занятия:</p>
-<ul>
-<li>Лепка и рисование</li>
-<li>Аппликации и поделки</li>
-<li>Работа с новыми материалами</li>
-<li>Развитие воображения</li>
-</ul>
-</div>
-<div class="program-card">
-<img alt="Английский язык" src="img/english.png"/>
-<h3>Английский язык</h3>
-<div class="age">От 5 лет</div>
-<p>Изучение английского через игру:</p>
-<ul>
-<li>Песни и мультфильмы</li>
-<li>Развитие разговорной речи</li>
-<li>Базовая грамматика</li>
-<li>Занятия по уровням</li>
-</ul>
-</div>
-<div class="program-card">
-<img alt="Летний лагерь" src="img/camp.png"/>
-<h3>Летний лагерь</h3>
-<div class="age">3-7 лет</div>
-<p>Активные летние каникулы:</p>
-<ul>
-<li>Развивающие занятия</li>
-<li>Творческие мастер-классы</li>
-<li>Подвижные игры</li>
-<li>Тематические дни</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
+
 <section class="gallery" id="gallery">
 <div class="container">
 <h2>Галерея</h2>
@@ -700,6 +775,7 @@
 </div>
 </div>
 </section>
+
 <section class="why-us">
 <div class="container">
 <h2>Игра + Обучение = Результат с радостью</h2>
@@ -749,6 +825,7 @@
 </div>
 </div>
 </section>
+
 <footer id="contact">
 <div class="container">
 <div class="footer-content">
@@ -779,12 +856,13 @@
 </div>
 </div>
 </footer>
+
 <script>
 // Модальное окно для галереи
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modalImg');
-    const caption = document.getElementById('caption'); // Получаем элемент подписи
+    const caption = document.getElementById('caption');
     const close = document.getElementsByClassName('close')[0];
     
     // Добавляем обработчики для всех изображений в галерее
@@ -793,7 +871,6 @@ document.addEventListener('DOMContentLoaded', function() {
         img.addEventListener('click', function() {
             modal.style.display = 'block';
             modalImg.src = this.src;
-            // Удалена строка: caption.innerHTML = this.alt;
         });
     });
     
