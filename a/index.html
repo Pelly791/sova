@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Абонемент — Совёнок</title>
+  <style>
+    body {
+      font-family: -apple-system, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background: #f5f6f8;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <p>Открываем ваш абонемент...</p>
+
+  <script>
+    // ВАЖНО: замените на актуальный WEB_APP_URL из Код.gs
+    var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzNnR9FnDW4DLd2jNt6dNS8MtSPpBj7XCzELfWkzDouCnWEBruIAQXxRY3KurtJsyRlbg/exec';
+
+    // Переносим все параметры (?token=...) как есть на настоящий адрес
+    var params = window.location.search; // например "?token=abc123"
+    window.location.replace(APPS_SCRIPT_URL + params);
+  </script>
+</body>
+</html>
