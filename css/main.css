@@ -1,4 +1,4 @@
-        * {
+* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -63,7 +63,7 @@
             content: "";
             width: 32px;
             height: 32px;
-            background: url('../img/sova.png') no-repeat center;
+            background: url('img/sova.png') no-repeat center;
             background-size: contain;
             margin-right: 0.5rem;
         }
@@ -109,11 +109,7 @@
 
         /* Hero Section */
         .hero {
-            background-color: white;
-            background-image: url('../img/banner.jpg');
-            background-position: center center;
-            background-size: cover;
-            background-repeat: no-repeat;
+            background: white url('img/banner.jpg') center/cover no-repeat;
             color: #2d5a2d;
             padding: 120px 0 150px;
             text-align: center;
@@ -272,25 +268,6 @@
             margin-top: auto;
             padding-top: 1rem;
             border-top: 1px solid #f0f0f0;
-        }
-
-        .price-old {
-            text-decoration: line-through;
-            color: #aaa;
-            font-size: 1.05rem;
-            font-weight: 600;
-        }
-
-        .price-new {
-            color: #D4A5A5;
-            font-weight: 700;
-        }
-
-        .price-note {
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: #6B9B6B;
-            margin-top: 0.3rem;
         }
 
         /* Features Section */
@@ -814,7 +791,7 @@
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
         }
 .camp {
@@ -1045,14 +1022,6 @@
 .content-section h2 { font-size: 1.9rem; color: #333; margin-bottom: 1.2rem; }
 .content-section p { color: #444; margin-bottom: 1rem; max-width: 760px; }
 
-/* Одноколоночные блоки (не content-with-photo) — центрируем по странице */
-.content-section > .container > h2,
-.content-section > .container > p {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .content-with-photo {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -1071,8 +1040,6 @@
     display: grid;
     gap: 0.8rem;
     max-width: 700px;
-    margin: 0 auto;
-    text-align: left;
 }
 
 .curriculum-list li {
@@ -1093,26 +1060,10 @@
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     max-width: 420px;
-    margin: 0 auto;
     text-align: center;
 }
 
 .price-box .amount { font-size: 2rem; font-weight: 700; color: #D4A5A5; margin: 0.5rem 0 1.2rem; }
-.price-box .amount .price-old {
-    text-decoration: line-through;
-    color: #aaa;
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin-right: 0.3rem;
-}
-.price-box .amount .price-new { color: #D4A5A5; }
-.price-box .price-note {
-    font-size: 0.85rem;
-    color: #6B9B6B;
-    font-weight: 600;
-    margin: 0.8rem 0;
-    line-height: 1.4;
-}
 
 .related-programs {
     display: grid;
@@ -1160,29 +1111,20 @@
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     background: #fff;
-    transition: height 0.35s ease;
 }
 .photo-carousel .carousel-track {
     display: flex;
-    align-items: flex-start;
     transition: transform 0.4s ease;
     height: 100%;
 }
 .photo-carousel .carousel-track img {
     width: 100%;
-    height: 100%;
     flex: 0 0 100%;
     border-radius: 0;
     box-shadow: none;
-    object-fit: contain;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     display: block;
-}
-/* Одиночное фото (без карусели) — тоже без обрезки, высота по содержимому */
-.content-photo > img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: contain;
 }
 .photo-carousel .carousel-btn {
     position: absolute;
@@ -1244,23 +1186,16 @@
 }
 .coop-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr 1fr;
     gap: 2.5rem;
-    align-items: stretch;
-}
-.coop-text {
-    background: rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 1.8rem;
-    display: flex;
-    flex-direction: column;
+    align-items: start;
 }
 .coop-text p { margin-bottom: 1rem; opacity: 0.95; }
 .coop-text .coop-values {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-    margin: 0.2rem 0 1.6rem;
+    margin: 1.2rem 0 1.6rem;
 }
 .coop-values span {
     background: rgba(255,255,255,0.15);
@@ -1269,16 +1204,13 @@
     padding: 0.4rem 1rem;
     font-size: 0.92rem;
 }
-.coop-text .cta-button { margin-top: auto; align-self: flex-start; }
 .coop-perks {
     background: rgba(255,255,255,0.1);
     border-radius: 20px;
     padding: 1.8rem;
     list-style: none;
     display: grid;
-    align-content: center;
     gap: 0.9rem;
-    margin: 0;
 }
 .coop-perks li {
     display: flex;
@@ -1296,88 +1228,4 @@
 
 @media (max-width: 768px) {
     .coop-grid { grid-template-columns: 1fr; }
-    .coop-text .cta-button { align-self: stretch; text-align: center; }
-}
-
-.content-photo-placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background: #f8faf8;
-    border: 2px dashed #d5e5d5;
-    border-radius: 20px;
-    padding: 3rem 1.5rem;
-    text-align: center;
-}
-.content-photo-placeholder img { width: 90px; height: auto; opacity: 0.8; }
-.content-photo-placeholder .placeholder-note { color: #888; font-size: 0.9rem; margin: 0; max-width: 220px; }
-
-/* ================= Модалка «Написать о сотрудничестве» ================= */
-.coop-dialog {
-    border: none;
-    border-radius: 20px;
-    padding: 0;
-    width: 90vw;
-    max-width: 480px;
-    max-height: 90vh;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    margin: auto;
-}
-.coop-dialog::backdrop { background: rgba(0,0,0,0.6); }
-.coop-dialog-content {
-    display: flex;
-    flex-direction: column;
-    max-height: 90vh;
-}
-.coop-dialog-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 1.5rem;
-    background: linear-gradient(135deg, #6B9B6B 0%, #588a58 100%);
-    color: #fff;
-    flex-shrink: 0;
-}
-.coop-dialog-header h3 { margin: 0; font-family: 'Bubblegum Sans', cursive; font-size: 1.3rem; }
-.coop-dialog-header .close-dialog { color: #fff; }
-.coop-dialog-header .close-dialog:hover { color: #f0d9d9; }
-.coop-dialog-body {
-    padding: 1.5rem;
-    overflow-y: auto;
-}
-.coop-dialog-intro { color: #555; margin-bottom: 1.2rem; line-height: 1.5; }
-.coop-dialog-contacts {
-    display: grid;
-    gap: 0.7rem;
-    margin-bottom: 1.3rem;
-}
-.coop-contact-item {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    background: #f8faf8;
-    border: 1px solid #e8f0e8;
-    border-radius: 12px;
-    padding: 0.8rem 1rem;
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-.coop-contact-item:hover { background: #eef6ee; transform: translateX(3px); }
-.coop-contact-icon { font-size: 1.2rem; flex-shrink: 0; }
-.coop-dialog-map {
-    border-radius: 14px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-}
-.coop-dialog-map iframe { display: block; }
-.coop-dialog-address { color: #777; font-size: 0.9rem; margin: 0; }
-
-@media (max-width: 480px) {
-    .coop-dialog { width: 94vw; }
-    .coop-dialog-body { padding: 1.2rem; }
 }
