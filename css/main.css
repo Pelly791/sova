@@ -1065,6 +1065,25 @@
 
 .price-box .amount { font-size: 2rem; font-weight: 700; color: #D4A5A5; margin: 0.5rem 0 1.2rem; }
 
+.price-old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+.price-new {
+    color: #D4A5A5;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.price-note {
+    font-size: 0.85rem;
+    color: #6B9B6B;
+    font-weight: 600;
+    margin-top: 0.4rem;
+}
+
 .related-programs {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
