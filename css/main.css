@@ -63,7 +63,7 @@
             content: "";
             width: 32px;
             height: 32px;
-            background: url('img/sova.png') no-repeat center;
+            background: url('../img/sova.png') no-repeat center;
             background-size: contain;
             margin-right: 0.5rem;
         }
@@ -109,7 +109,7 @@
 
         /* Hero Section */
         .hero {
-            background: white url('img/banner.jpg') center/cover no-repeat;
+            background: white url('../img/banner.jpg') center/cover no-repeat;
             color: #2d5a2d;
             padding: 120px 0 150px;
             text-align: center;
