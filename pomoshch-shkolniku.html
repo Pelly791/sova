@@ -76,12 +76,12 @@
     {
       "@type": "Question",
       "name": "Это групповые или индивидуальные занятия?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Занятия проходят в мини-группах до 6 человек. Это позволяет держать цену ниже, чем у индивидуального репетитора, но при этом педагог успевает подойти к каждому ребёнку и разобрать именно его задание." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Занятия проходят в школьных группах — чуть больше 10 человек. Это позволяет держать цену ниже, чем у индивидуального репетитора, но при этом педагог подходит к каждому ребёнку и разбирает именно его задание." }
     },
     {
       "@type": "Question",
       "name": "Сколько детей занимается в группе?",
-      "acceptedAnswer": { "@type": "Answer", "text": "В группах «Помощь школьнику» и «Школа+» занимается до 6 человек — это позволяет уделить внимание каждому ребёнку." }
+      "acceptedAnswer": { "@type": "Answer", "text": "В школьных группах — «Помощь школьнику» и «Школа+» — занимается чуть больше 10 человек." }
     }
   ]
 }
@@ -143,16 +143,27 @@
                 <h2>О программе</h2>
                 <p>Часто ребёнку не хватает не знаний, а спокойной обстановки и терпеливого объяснения «ещё раз, но по-другому». Дома вечером, после работы, у родителей не всегда есть на это ресурс — и это нормально.</p>
             <p>На занятиях педагог разбирает с ребёнком именно те задания, которые заданы в школе, помогает понять логику предмета, а не просто выполнить упражнение «на автомате».</p>
-            <p>Занятия проходят в мини-группах до 6 человек — такой формат позволяет педагогу успеть подойти к каждому ребёнку и разобрать именно то, что вызывает сложность.</p>
+            <p>Занятия проходят в школьных группах — чуть больше 10 человек. Такой формат сохраняет рабочую атмосферу класса и при этом даёт возможность подойти и разобрать сложный пример индивидуально.</p>
             </div>
             <div class="content-photo">
-                <img src="gallery/pomoshch-shkolniku.jpg" alt="Помощь школьнику с домашним заданием в студии Совёнок" loading="lazy"/>
+                <div class="photo-carousel" id="carousel-pomoshch-shkolniku" data-count="2">
+                <div class="carousel-track">
+                    <img src="gallery/pomoshch-shkolniku.jpg" alt="Помощь школьнику с домашним заданием в студии Совёнок" loading="lazy"/>
+                    <img src="gallery/photo8.jpg" alt="Дети на занятии по выполнению домашних заданий" loading="lazy"/>
+                </div>
+                <button class="carousel-btn carousel-prev" aria-label="Предыдущее фото">&#10094;</button>
+                <button class="carousel-btn carousel-next" aria-label="Следующее фото">&#10095;</button>
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" data-index="0" aria-label="Слайд 1"></button>
+                    <button class="carousel-dot" data-index="1" aria-label="Слайд 2"></button>
+                </div>
+            </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="content-section">
+<section class="content-section content-section-centered">
     <div class="container">
         <h2>Что входит в программу</h2>
         <ul class="curriculum-list">
@@ -165,15 +176,14 @@
     </div>
 </section>
 
-<section class="content-section">
+<section class="content-section content-section-centered">
     <div class="container">
         <h2>Стоимость</h2>
         <div class="price-box">
             <p>Помощь школьнику, 1-4 класс</p>
-            <div class="amount"><span class="price-old">4000 ₽</span> <span class="price-new">4600 ₽</span></div>
+            <div class="amount">4600 рублей</div>
             <p>за 8 занятий</p>
-            <p class="price-note">Идёт набор на новый учебный год — при записи и оплате до 1 сентября действует старая цена, 4000 ₽</p>
-            <a class="cta-button" href="index.html#contact" style="margin-top:1rem;">Записаться по старой цене</a>
+            <a class="cta-button" href="index.html#contact" style="margin-top:1rem;">Записаться</a>
         </div>
     </div>
 </section>
@@ -192,11 +202,11 @@
             </div>
             <div class="faq-item">
                 <button class="faq-question"><span>Это групповые или индивидуальные занятия?</span><span class="plus">+</span></button>
-                <div class="faq-answer"><p>Занятия проходят в мини-группах до 6 человек. Это позволяет держать цену ниже, чем у индивидуального репетитора, но при этом педагог успевает подойти к каждому ребёнку и разобрать именно его задание.</p></div>
+                <div class="faq-answer"><p>Занятия проходят в школьных группах — чуть больше 10 человек. Это позволяет держать цену ниже, чем у индивидуального репетитора, но при этом педагог подходит к каждому ребёнку и разбирает именно его задание.</p></div>
             </div>
             <div class="faq-item">
                 <button class="faq-question"><span>Сколько детей занимается в группе?</span><span class="plus">+</span></button>
-                <div class="faq-answer"><p>В группах «Помощь школьнику» и «Школа+» занимается до 6 человек — это позволяет уделить внимание каждому ребёнку.</p></div>
+                <div class="faq-answer"><p>В школьных группах — «Помощь школьнику» и «Школа+» — занимается чуть больше 10 человек.</p></div>
             </div>
         </div>
     </div>
@@ -213,10 +223,6 @@
             <a class="related-card" href="podgotovka-k-shkole.html">
                 <img src="img/school.png" alt="Подготовка к школе" width="56" height="56" loading="lazy"/>
                 <h3>Подготовка к школе</h3>
-            </a>
-            <a class="related-card" href="shkola-plus.html">
-                <img src="img/help.png" alt="Школа+" width="56" height="56" loading="lazy"/>
-                <h3>Школа+</h3>
             </a>
             <a class="related-card" href="art-laboratoriya.html">
                 <img src="img/creativity.png" alt="Арт-лаборатория" width="56" height="56" loading="lazy"/>
@@ -289,50 +295,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Фото-карусель: высота подстраивается под пропорции текущего фото (без обрезки)
+    // Фото-карусель
     document.querySelectorAll('.photo-carousel').forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
-        const imgs  = [...track.querySelectorAll('img')];
-        const count = parseInt(carousel.dataset.count, 10) || imgs.length;
+        const count = parseInt(carousel.dataset.count, 10);
         const dots  = carousel.querySelectorAll('.carousel-dot');
         let index = 0;
-
-        function applyHeight(img) {
-            const width = carousel.clientWidth;
-            if (img.naturalWidth && img.naturalHeight) {
-                carousel.style.height = (width * img.naturalHeight / img.naturalWidth) + 'px';
-            }
-        }
-
         function goTo(i) {
             index = (i + count) % count;
             track.style.transform = 'translateX(-' + (index * 100) + '%)';
             dots.forEach((d, di) => d.classList.toggle('active', di === index));
-            const img = imgs[index];
-            if (img.complete) { applyHeight(img); }
-            else { img.addEventListener('load', () => applyHeight(img), { once: true }); }
         }
-
-        if (imgs[0]) {
-            if (imgs[0].complete) applyHeight(imgs[0]);
-            else imgs[0].addEventListener('load', () => applyHeight(imgs[0]), { once: true });
-        }
-
-        window.addEventListener('resize', () => applyHeight(imgs[index]));
-
-        const prevBtn = carousel.querySelector('.carousel-prev');
-        const nextBtn = carousel.querySelector('.carousel-next');
-        if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
-        if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
+        carousel.querySelector('.carousel-prev').addEventListener('click', () => goTo(index - 1));
+        carousel.querySelector('.carousel-next').addEventListener('click', () => goTo(index + 1));
         dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10))));
-    });
-
-    // Одиночное фото без карусели: подгоняем контейнер по натуральной высоте изображения
-    document.querySelectorAll('.content-photo > img').forEach(img => {
-        function fit() {
-            img.style.height = 'auto';
-        }
-        if (img.complete) fit(); else img.addEventListener('load', fit, { once: true });
     });
 });
 </script>
