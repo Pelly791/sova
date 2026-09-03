@@ -146,11 +146,12 @@
             <p>Группы небольшие — до 6 детей, поэтому педагог успевает уделить внимание каждому малышу и мягко подстроить темп занятия под конкретного ребёнка.</p>
             </div>
             <div class="content-photo">
-                <div class="photo-carousel" id="carousel-rannee-razvitie" data-count="3">
+                <div class="photo-carousel" id="carousel-rannee-razvitie" data-count="4">
                 <div class="carousel-track">
                     <img src="gallery/rannee-razvitie1.jpg" alt="Раннее развитие в студии Совёнок — занятие с педагогом" loading="lazy"/>
                     <img src="gallery/rannee-razvitie2.jpg" alt="Развивающие игры для детей 3-5 лет в студии Совёнок" loading="lazy"/>
                     <img src="gallery/rannee-razvitie3.jpg" alt="Сенсорное развитие и моторика на занятии раннего развития" loading="lazy"/>
+                    <img src="gallery/photo1.jpg" alt="Занятие по раннему развитию в студии Совёнок" loading="lazy"/>
                 </div>
                 <button class="carousel-btn carousel-prev" aria-label="Предыдущее фото">&#10094;</button>
                 <button class="carousel-btn carousel-next" aria-label="Следующее фото">&#10095;</button>
@@ -158,6 +159,7 @@
                     <button class="carousel-dot active" data-index="0" aria-label="Слайд 1"></button>
                     <button class="carousel-dot" data-index="1" aria-label="Слайд 2"></button>
                     <button class="carousel-dot" data-index="2" aria-label="Слайд 3"></button>
+                    <button class="carousel-dot" data-index="3" aria-label="Слайд 4"></button>
                 </div>
             </div>
             </div>
@@ -165,7 +167,7 @@
     </div>
 </section>
 
-<section class="content-section">
+<section class="content-section content-section-centered">
     <div class="container">
         <h2>Что входит в программу</h2>
         <ul class="curriculum-list">
@@ -178,15 +180,14 @@
     </div>
 </section>
 
-<section class="content-section">
+<section class="content-section content-section-centered">
     <div class="container">
         <h2>Стоимость</h2>
         <div class="price-box">
             <p>Раннее развитие, 3-5 лет</p>
-            <div class="amount"><span class="price-old">1400 ₽</span> <span class="price-new">1600 ₽</span></div>
+            <div class="amount">1600 рублей</div>
             <p>за 4 занятия</p>
-            <p class="price-note">Идёт набор на новый учебный год — при записи и оплате до 1 сентября действует старая цена, 1400 ₽</p>
-            <a class="cta-button" href="index.html#contact" style="margin-top:1rem;">Записаться по старой цене</a>
+            <a class="cta-button" href="index.html#contact" style="margin-top:1rem;">Записаться</a>
         </div>
     </div>
 </section>
@@ -222,14 +223,6 @@
             <a class="related-card" href="podgotovka-k-shkole.html">
                 <img src="img/school.png" alt="Подготовка к школе" width="56" height="56" loading="lazy"/>
                 <h3>Подготовка к школе</h3>
-            </a>
-            <a class="related-card" href="pomoshch-shkolniku.html">
-                <img src="img/homework.png" alt="Помощь школьнику" width="56" height="56" loading="lazy"/>
-                <h3>Помощь школьнику</h3>
-            </a>
-            <a class="related-card" href="shkola-plus.html">
-                <img src="img/help.png" alt="Школа+" width="56" height="56" loading="lazy"/>
-                <h3>Школа+</h3>
             </a>
             <a class="related-card" href="art-laboratoriya.html">
                 <img src="img/creativity.png" alt="Арт-лаборатория" width="56" height="56" loading="lazy"/>
@@ -302,50 +295,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Фото-карусель: высота подстраивается под пропорции текущего фото (без обрезки)
+    // Фото-карусель
     document.querySelectorAll('.photo-carousel').forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
-        const imgs  = [...track.querySelectorAll('img')];
-        const count = parseInt(carousel.dataset.count, 10) || imgs.length;
+        const count = parseInt(carousel.dataset.count, 10);
         const dots  = carousel.querySelectorAll('.carousel-dot');
         let index = 0;
-
-        function applyHeight(img) {
-            const width = carousel.clientWidth;
-            if (img.naturalWidth && img.naturalHeight) {
-                carousel.style.height = (width * img.naturalHeight / img.naturalWidth) + 'px';
-            }
-        }
-
         function goTo(i) {
             index = (i + count) % count;
             track.style.transform = 'translateX(-' + (index * 100) + '%)';
             dots.forEach((d, di) => d.classList.toggle('active', di === index));
-            const img = imgs[index];
-            if (img.complete) { applyHeight(img); }
-            else { img.addEventListener('load', () => applyHeight(img), { once: true }); }
         }
-
-        if (imgs[0]) {
-            if (imgs[0].complete) applyHeight(imgs[0]);
-            else imgs[0].addEventListener('load', () => applyHeight(imgs[0]), { once: true });
-        }
-
-        window.addEventListener('resize', () => applyHeight(imgs[index]));
-
-        const prevBtn = carousel.querySelector('.carousel-prev');
-        const nextBtn = carousel.querySelector('.carousel-next');
-        if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
-        if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
+        carousel.querySelector('.carousel-prev').addEventListener('click', () => goTo(index - 1));
+        carousel.querySelector('.carousel-next').addEventListener('click', () => goTo(index + 1));
         dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10))));
-    });
-
-    // Одиночное фото без карусели: подгоняем контейнер по натуральной высоте изображения
-    document.querySelectorAll('.content-photo > img').forEach(img => {
-        function fit() {
-            img.style.height = 'auto';
-        }
-        if (img.complete) fit(); else img.addEventListener('load', fit, { once: true });
     });
 });
 </script>
