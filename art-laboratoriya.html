@@ -161,7 +161,7 @@
     </div>
 </section>
 
-<section class="content-section">
+<section class="content-section content-section-centered">
     <div class="container">
         <h2>Что входит в программу</h2>
         <ul class="curriculum-list">
@@ -173,7 +173,7 @@
     </div>
 </section>
 
-<section class="content-section">
+<section class="content-section content-section-centered">
     <div class="container">
         <h2>Стоимость</h2>
         <div class="price-box">
@@ -216,14 +216,6 @@
             <a class="related-card" href="podgotovka-k-shkole.html">
                 <img src="img/school.png" alt="Подготовка к школе" width="56" height="56" loading="lazy"/>
                 <h3>Подготовка к школе</h3>
-            </a>
-            <a class="related-card" href="pomoshch-shkolniku.html">
-                <img src="img/homework.png" alt="Помощь школьнику" width="56" height="56" loading="lazy"/>
-                <h3>Помощь школьнику</h3>
-            </a>
-            <a class="related-card" href="shkola-plus.html">
-                <img src="img/help.png" alt="Школа+" width="56" height="56" loading="lazy"/>
-                <h3>Школа+</h3>
             </a>
             <a class="related-card" href="angliyskiy-yazyk.html">
                 <img src="img/english.png" alt="Английский язык" width="56" height="56" loading="lazy"/>
@@ -292,50 +284,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Фото-карусель: высота подстраивается под пропорции текущего фото (без обрезки)
+    // Фото-карусель
     document.querySelectorAll('.photo-carousel').forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
-        const imgs  = [...track.querySelectorAll('img')];
-        const count = parseInt(carousel.dataset.count, 10) || imgs.length;
+        const count = parseInt(carousel.dataset.count, 10);
         const dots  = carousel.querySelectorAll('.carousel-dot');
         let index = 0;
-
-        function applyHeight(img) {
-            const width = carousel.clientWidth;
-            if (img.naturalWidth && img.naturalHeight) {
-                carousel.style.height = (width * img.naturalHeight / img.naturalWidth) + 'px';
-            }
-        }
-
         function goTo(i) {
             index = (i + count) % count;
             track.style.transform = 'translateX(-' + (index * 100) + '%)';
             dots.forEach((d, di) => d.classList.toggle('active', di === index));
-            const img = imgs[index];
-            if (img.complete) { applyHeight(img); }
-            else { img.addEventListener('load', () => applyHeight(img), { once: true }); }
         }
-
-        if (imgs[0]) {
-            if (imgs[0].complete) applyHeight(imgs[0]);
-            else imgs[0].addEventListener('load', () => applyHeight(imgs[0]), { once: true });
-        }
-
-        window.addEventListener('resize', () => applyHeight(imgs[index]));
-
-        const prevBtn = carousel.querySelector('.carousel-prev');
-        const nextBtn = carousel.querySelector('.carousel-next');
-        if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
-        if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
+        carousel.querySelector('.carousel-prev').addEventListener('click', () => goTo(index - 1));
+        carousel.querySelector('.carousel-next').addEventListener('click', () => goTo(index + 1));
         dots.forEach(d => d.addEventListener('click', () => goTo(parseInt(d.dataset.index, 10))));
-    });
-
-    // Одиночное фото без карусели: подгоняем контейнер по натуральной высоте изображения
-    document.querySelectorAll('.content-photo > img').forEach(img => {
-        function fit() {
-            img.style.height = 'auto';
-        }
-        if (img.complete) fit(); else img.addEventListener('load', fit, { once: true });
     });
 });
 </script>
